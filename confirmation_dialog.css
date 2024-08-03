@@ -1,0 +1,112 @@
+
+
+/* CONFIRMATION DIALOG */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.overlay.show {
+    display: flex;
+    opacity: 1;
+    z-index: 1001;
+}
+
+.dialog {
+    background: #212121;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+
+.dialog h2 {
+    margin: 0;
+}
+
+
+.confirm-btn {
+    background: #018749;
+    border: none;
+    color: white;
+    width: 70%;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-bottom: 10%;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.confirm-btn:hover {
+    background: #03C03C;
+    transform: translateY(-2px);
+}
+
+.close-btn{
+    background: #808080;
+    border: none;
+    color: white;
+    width: 70%;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-bottom: 10%;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+
+}
+
+.submit-btn .dialog button {
+    background-color: #DC143C;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+    transition: background 0.3s ease;
+    margin: 10px;
+}
+
+.close-btn .dialog button {
+    background-color: yellow;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+    transition: background 0.3s ease;
+    margin: 10px;
+}
+
+.close-btn:hover {
+    background: #A9A9A9;
+}
+
+.dialog {
+    background: #212121;
+    color: #fff;
+}
+

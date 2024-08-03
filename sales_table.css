@@ -1,0 +1,63 @@
+/* Sales Table */
+main {
+    display: block;
+    justify-content: center; /* Center content horizontally */
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.table-container {
+    text-align: center; /* Center table contents */
+}
+
+table {
+    width: 100%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin: 0 auto; /* Center the table within its container */
+}
+
+table, th, td {
+    border: 1px solid #333;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center; /* Center contents */
+}
+
+th {
+    background-color: #333;
+}
+
+td {
+    background-color: #424242;
+}
+
+tr:nth-child(even) {
+    background-color: #333;
+}
+
+tr:hover {
+    background-color: #555;
+}
+
+
+.delete-button {
+    background-color: #DC143C; 
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.delete-button:hover {
+    background-color: #E32636;
+}
+
+/* VIEW IMAGE CLCKABLE LINK */
+.android-green-link {
+    color: #A4C639;
+}

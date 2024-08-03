@@ -1,0 +1,92 @@
+   /* CARD CONTAINER */
+  .container {
+    display: flex;
+    gap: 20px; /* Increase gap between cards */
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* Adjust height to account for header */
+  }
+
+
+
+  /* INFO CARD DESIGN */
+  .info-card {
+    width: 250px; /* Increase width */
+    height: 100px; /* Initial height to hide content */
+    padding: 1rem; /* Increase padding */
+    background: rgba(48, 48, 48, 0.9);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+    border-left: 2px rgba(255, 255, 255, 0.545) outset;
+    box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
+    transform: skewX(10deg);
+    transition: .4s;
+    overflow: hidden; /* Hide overflowing content */
+    color: white;
+  }
+
+
+
+  /* INFO CARD HOVER */
+  .info-card:hover {
+    height: 220px; /* Increase height on hover */
+    transform: skew(0deg);
+  }
+
+
+
+  /* 3 DOTS INSIDE INFO CARD - CONTAINER */
+  .align {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Increase gap between circles */
+    align-self: flex-start;
+  }
+
+
+
+  /* 3 DOTS INSIDE INFO CARD - INDIVIDUAL DOTS */
+  .red, .yellow, .green {
+    width: 15px; /* Increase size */
+    height: 15px; /* Increase size */
+    border-radius: 50%;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+  }
+
+  .red {
+    background-color: #ff605c;
+  }
+
+  .yellow {
+    background-color: #ffbd44;
+  }
+
+  .green {
+    background-color: #00ca4e;
+  }
+/* 3 DOTS INSIDE INFO CARD - INDIVIDUAL DOTS */
+
+
+
+/* INFO CARD TITLE */
+  .info-card h1 {
+    text-align: center;
+    margin: 1rem 0; 
+    color: rgb(218, 244, 237);
+    text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.248);
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 1.5rem; 
+  }
+
+
+/* INFO CARD CONTENT */ 
+  .sales, .expenses, .stock, .graph {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 1rem; 
+    font-weight: 400;
+    text-align: center;
+    margin-top: 10%;
+  }
+
