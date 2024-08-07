@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link href="header.css" rel="stylesheet">
 <link href="confirmation_dialog.css" rel="stylesheet">
-<link href="form.css" rel="stylesheet">
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 
@@ -76,34 +76,162 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-  }
-  .submit-btn .dialog button {
-    background-color: #DC143C;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    margin-top: 10px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 40%;
-    transition: background 0.3s ease;
-    margin: 10px;
+    overflow: hidden;
 }
 
-.close-btn .dialog button {
-    background-color: yellow;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    margin-top: 10px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 40%;
-    transition: background 0.3s ease;
-    margin: 10px;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 10%;
 }
+
+.form-block {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 400px;
+}
+
+.form-block h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-block label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-block input[type="text"], .form-block input[type="file"], .form-block select, .form-block input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-block input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.form-block input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+ /* CONFIRMATION DIALOG */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.overlay.show {
+    display: flex;
+    opacity: 1;
+    z-index: 1001;
+}
+
+.dialog {
+    background: #212121;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    color: #A6A6A6;
+}
+
+.dialog h2 {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+.dialog p {
+    margin: 20px 0;
+    color: #FFFFFF;
+}
+
+.dialog form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.dialog button {
+    width: 30%; /* Adjusted width */
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin: 10px 0;
+    display: inline-block;
+    border: none;
+    text-transform: uppercase;
+}
+
+.dialog button[type="submit"] {
+    background: #FF4655;
+    color: white;
+}
+
+.dialog button[type="submit"]:hover {
+    background: #FF7885;
+    transform: translateY(-2px);
+}
+
+.close-btn {
+    background: #A6A6A6;
+    color: white;
+}
+
+.close-btn:hover {
+    background: #C0C0C0;
+    transform: translateY(-2px);
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    font-size: 16pt;
+}
+
+form input, form select, form button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 20%;
+    font-size: 14pt;
+}
+
+
 </style>
 </head>
 <body>
@@ -154,47 +282,49 @@ body {
 
 
 <!-- Add Sales Form -->
-<main>
-  <form id="addSalesForm" action="add_sales.php" method="post" enctype="multipart/form-data">
-    <label for="brand">Brand</label>
-    <select id="brand" name="brand" required>
-      <option value="">Select Brand</option>
-      <option value="Black">Black</option>
-      <option value="Cigbay">Cigbay</option>
-    </select>
+<div class="container">
+    <div class="form-block">
+        <h2>Add New Sale</h2>
+        <form id="addSalesForm" action="add_sales.php" method="post" enctype="multipart/form-data">
+            <label for="brand">Brand</label>
+            <select id="brand" name="brand" required>
+                <option value="">Select Brand</option>
+                <option value="Black">Black</option>
+                <option value="Cigbay">Cigbay</option>
+            </select>
 
-    <label for="type">Type</label>
-    <select id="type" name="type" required>
-      <option value="">Select Type</option>
-      <!-- Options will be populated based on brand selection -->
-    </select>
+            <label for="type">Type</label>
+            <select id="type" name="type" required>
+                <option value="">Select Type</option>
+                <!-- Options will be populated based on brand selection -->
+            </select>
 
-    <label for="item">Item</label>
-    <select id="item" name="item" required>
-      <option value="">Select Item</option>
-      <!-- Options will be populated based on type selection -->
-    </select>
+            <label for="item">Item</label>
+            <select id="item" name="item" required>
+                <option value="">Select Item</option>
+                <!-- Options will be populated based on type selection -->
+            </select>
 
-    <label for="flavor">Flavor</label>
-    <select id="flavor" name="flavor">
-      <option value="">Select Flavor</option>
-      <!-- Options will be populated based on item selection -->
-    </select>
+            <label for="flavor">Flavor</label>
+            <select id="flavor" name="flavor">
+                <option value="">Select Flavor</option>
+                <!-- Options will be populated based on item selection -->
+            </select>
 
-    <label for="mop">MOP</label>
-    <select id="mop" name="mop" required>
-      <option value="Cash">Cash</option>
-      <option value="Gcash">Gcash</option>
-      <option value="Maya">Maya</option>
-    </select>
+            <label for="mop">MOP</label>
+            <select id="mop" name="mop" required>
+                <option value="Cash">Cash</option>
+                <option value="Gcash">Gcash</option>
+                <option value="Maya">Maya</option>
+            </select>
 
-    <label for="proof">Proof</label>
-    <input type="file" id="proof" name="proof" accept="image/*" required>
+            <label for="proof">Proof</label>
+            <input type="file" id="proof" name="proof" accept="image/*" required>
 
-    <button type="button" class="primary-button" onclick="showConfirmationDialog()">Submit</button>
-
-  </form>
-</main>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
 
 <!-- Confirmation Dialog -->
 <div class="overlay" id="confirmationDialog">
@@ -221,11 +351,12 @@ body {
     <h2>Logout Confirmation</h2>
     <p>Are you sure you want to logout?</p>
     <form action="home.php" method="post">
-    <button type="submit" class="submit-btn" name="logout">Yes</button>
-    <button type="button" class="close-btn" onclick="closeLogoutDialog()">No</button>
+      <button type="submit" name="logout">Yes</button>
+      <button type="button" class="close-btn" onclick="closeLogoutDialog()">No</button>
     </form>
   </div>
 </div>
+<!-- Logout Confirmation Dialog -->
 
 <script>
 const brandSelect = document.getElementById('brand');

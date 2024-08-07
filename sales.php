@@ -67,6 +67,86 @@ body {
     padding: 0;
 }
 
+/* CONFIRMATION DIALOG */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.overlay.show {
+    display: flex;
+    opacity: 1;
+    z-index: 1001;
+}
+
+.dialog {
+    background: #212121;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    color: #A6A6A6;
+}
+
+.dialog h2 {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+.dialog p {
+    margin: 20px 0;
+    color: #FFFFFF;
+}
+
+.dialog button {
+    width: 30%; /* Adjusted width */
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin: 10px 5%;
+    display: inline-block;
+    border: none;
+    text-transform: uppercase;
+}
+
+.dialog button[type="submit"] {
+    background: #FF4655;
+    color: white;
+}
+
+.dialog button[type="submit"]:hover {
+    background: #FF7885;
+    transform: translateY(-2px);
+    max-width: 80%;
+}
+
+.close-btn {
+    background: #A6A6A6;
+    color: white;
+}
+
+.close-btn:hover {
+    background: #C0C0C0;
+    transform: translateY(-2px);
+}
+
+/* CONFIRMATION DIALOG */
+
 /* IMAGE POPUP (VIEW IMAGE PROOF) */
 .image-popup {
     position: fixed;
@@ -103,8 +183,8 @@ body {
     font-size: 16px;
     border-radius: 4px;
     z-index: 2; /* Ensure button is above the image */
-    position: absolute; /* Position absolute to place it relative to the container */
-    margin-top: 53%;
+    position: fixed; /* Position absolute to place it relative to the container */
+    margin-top: 85vh;
 }
 
 .image-popup .close-btn:hover {
