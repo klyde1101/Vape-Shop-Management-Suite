@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         $stmt->bind_param("ss", $hashedPassword, $inputUsername);
         if ($stmt->execute()) {
-            echo "Password updated successfully. <a href='login.php'>Login again</a>";
+            echo "Password updated successfully. <a href='index.php'>Login again</a>";
         } else {
             echo "Failed to update password.";
         }
